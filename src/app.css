@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* width */
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#active-label {
+    position: absolute;
+    left: 33%;
+    width: 34%;
+    height: 100%;
+    transition: 0.5s left ease;
+}
+
+
+
+#price:checked ~ #tools > .switches > #active-label {
+    left: 0;
+}
+
+#rarity:checked ~ #tools > .switches > #active-label {
+    left: 66%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+@keyframes move {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.donationprogress {
+    animation: move 60s linear infinite;
+}
+
+.donationmove {
+    animation: move 300s linear infinite;
+}
+
+#hide ~ #tools > .c > label[for="hide"]::before {
+    content: "";
+
+    transition: 120ms box-shadow ease-in-out;
+
+    box-shadow: inset 0em 0em var(--default-500);
+
+    background-color: var(--default-800);
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: var(--default-700);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--default-600);
+    border-radius: 0.15em;
+
+    margin-top: 2px;
+
+    display: inline-flex;
+    place-content: center;
+    margin-right: 8px;
+}
+
+#hide:checked ~ #tools > .c > label[for="hide"]::before {
+    box-shadow: inset 1em 1em var(--default-500);
+}
+
+#terms ~ label[for="terms"]::before {
+    content: "";
+
+    transition: 120ms box-shadow ease-in-out;
+
+    box-shadow: inset 0em 0em var(--default-500);
+
+    background-color: var(--default-800);
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: var(--default-700);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--default-600);
+    border-radius: 0.15em;
+
+    margin-top: 2px;
+
+    display: inline-flex;
+    place-content: center;
+    margin-right: 8px;
+}
+
+#terms:checked ~ label[for="terms"]::before {
+    box-shadow: inset 1em 1em var(--default-500);
+}
+
+#terms:focus ~ label[for="terms"]::before {
+    border: 0.15em solid red !important;
+    transition-property: border;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@keyframes grow {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress);
+    }
+}

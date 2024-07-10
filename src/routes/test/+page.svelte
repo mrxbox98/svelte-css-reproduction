@@ -1,4 +1,4 @@
 <script lang="ts">
     let t = $state("")
 </script>
-<a class="text-red-500" href="/test">Red link</a>
+<a class="text-blue-500" href="/">go back</a>
